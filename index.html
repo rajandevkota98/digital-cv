@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rajan Devkota · Senior AI Engineer</title>
+<meta name="description" content="Digital CV of Rajan Devkota, Senior AI Engineer in Kathmandu. Document intelligence, RAG and multi-agent systems, voice agents, multimodal model training, and high-throughput inference.">
+<meta property="og:title" content="Rajan Devkota · Senior AI Engineer">
+<meta property="og:description" content="Production AI systems, from model training to Kubernetes serving. Inference cost cuts of 50–75%.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://rdevkota.com.np/">
+<link rel="canonical" href="https://rdevkota.com.np/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111'/%3E%3Cpath d='M6 26V6h9a6 6 0 0 1 2 11.6L22 26h-5l-4-8h-2v8z' fill='%23ff5a1f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Hanken+Grotesk:wght@400;500;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="sheet">
+
+  <header class="title-block">
+    <div class="tb-name">
+      <p class="tb-kicker">Datasheet · Human, one unit</p>
+      <h1>Rajan<br>Devkota</h1>
+      <p class="tb-role">Senior AI Engineer<span> / model training → Kubernetes serving</span></p>
+    </div>
+    <dl class="tb-meta">
+      <div><dt>Doc no.</dt><dd>RD-CV-2026.11</dd></div>
+      <div><dt>Status</dt><dd><i class="led"></i>In production</dd></div>
+      <div><dt>Location</dt><dd>Kathmandu, NP · UTC+5:45</dd></div>
+      <div><dt>Uptime</dt><dd>3+ years, production AI</dd></div>
+      <div><dt>Interfaces</dt><dd>
+        <a href="mailto:r.devkota.98@gmail.com">email</a>
+        <a href="https://linkedin.com/in/devkotarajan">linkedin</a>
+        <a href="https://github.com/rajandevkota98">github</a>
+        <a href="https://huggingface.co/Rajan98">hugging face</a>
+      </dd></div>
+    </dl>
+  </header>
+
+  <nav class="toc" aria-label="Sections">
+    <a href="#description"><b>1</b>Description</a>
+    <a href="#characteristics"><b>2</b>Characteristics</a>
+    <a href="#experience"><b>3</b>Experience</a>
+    <a href="#projects"><b>4</b>Projects</a>
+    <a href="#technologies"><b>5</b>Technologies</a>
+    <a href="#education"><b>6</b>Education</a>
+    <button type="button" onclick="print()">Print / PDF</button>
+  </nav>
+
+  <section id="description">
+    <h2><b>1</b>General description</h2>
+    <div class="cols">
+      <p class="lede">Senior AI Engineer with 3+ years building and operating production AI systems, currently leading a team of five and owning the stack end to end, from model training to Kubernetes serving.</p>
+      <ul class="features">
+        <li>Document intelligence pipelines: layout detection plus vision-language models</li>
+        <li>RAG, multi-agent systems, and voice agents in production</li>
+        <li>Trains multimodal models, most recently a speech-in, tool-calling assistant (Whisper encoder, Qwen3, QLoRA) published on Hugging Face</li>
+        <li>High-throughput inference on vLLM, TGI, and Triton</li>
+        <li>GPU cost engineering across AWS, Azure, GCP, DigitalOcean, and Modal</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="characteristics">
+    <h2><b>2</b>Measured characteristics</h2>
+    <div class="table-wrap">
+    <table class="spec">
+      <thead><tr><th>Parameter</th><th>Test condition</th><th class="num">Before</th><th class="num">After</th><th class="num">Result</th></tr></thead>
+      <tbody>
+        <tr><td>Inference cost</td><td>Open-source LLMs on vLLM + TEI, Frost Digital Ventures</td><td class="num">1.00×</td><td class="num">0.25×</td><td class="num hit">−75%</td></tr>
+        <tr><td>Latency</td><td>Same serving stack</td><td class="num">1.00×</td><td class="num">0.50×</td><td class="num hit">−50%</td></tr>
+        <tr><td>Inference cost</td><td>Triton + Azure spot instances, Herix</td><td class="num">1.00×</td><td class="num">0.50×</td><td class="num hit">−50%</td></tr>
+        <tr><td>GPU hourly rate</td><td>H100 → A40 class, throughput held by continuous batching</td><td class="num">1</td><td class="num">≈ 1/6</td><td class="num hit">≈ 6× cheaper</td></tr>
+        <tr><td>In-memory vector index</td><td>Binary quantization, recall preserved by rescoring</td><td class="num">32 bit/dim</td><td class="num">1 bit/dim</td><td class="num hit">32× smaller</td></tr>
+        <tr><td>Spoken tool-call accuracy</td><td>omni-assistant, 1,274-turn frozen test set</td><td class="num">17.5%</td><td class="num">72.1%</td><td class="num hit">+54.6 pt</td></tr>
+        <tr><td>Reading order, Kendall’s τ</td><td>Multi-column pages, vs RapidOCR baseline</td><td class="num">0.486</td><td class="num">0.734</td><td class="num hit">+51%</td></tr>
+        <tr><td>Formula-term recall</td><td>100-page synthetic OCR benchmark</td><td class="num">77.6%</td><td class="num">92.0%</td><td class="num hit">+14.4 pt</td></tr>
+        <tr><td>Extraction accuracy</td><td>Due diligence over 500+ annual reports</td><td class="num">—</td><td class="num">95%</td><td class="num hit">95%</td></tr>
+        <tr><td>Speech alignment WER</td><td>LibriSpeech test-clean, audio adapter stage</td><td class="num">—</td><td class="num">7.0%</td><td class="num hit">7.0%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">Note 1. All values are taken from shipped work described in sections 3 and 4. Targets that were missed are reported in the omni-assistant model card.</p>
+  </section>
+
+  <section id="experience">
+    <h2><b>3</b>Experience</h2>
+
+    <article class="entry">
+      <header>
+        <p class="when">Nov 2025 – Present</p>
+        <h3>Senior AI Engineer</h3>
+        <p class="where">Wildenova · Texas, USA · Full-time, remote</p>
+      </header>
+      <ul>
+        <li>Own DevOps, MLOps, and AI engineering end to end while leading a team of five across 4 services, building from Kubernetes manifests through to shipped product.</li>
+        <li>Architected a two-stage hybrid document pipeline that decouples layout from transcription: a deterministic layout detector (PP-DocLayoutV3 via the GLM-OCR SDK) segments and crops semantic regions, then a compact vision-language decoder (Qwen 3.5 4B) served on vLLM transcribes each high-resolution crop in context.</li>
+        <li>Built long-horizon document workflows on LangChain DeepAgents, using planning, sub-agent delegation, and a shared virtual filesystem to keep multi-step extraction jobs coherent across 500 documents.</li>
+        <li>Re-engineered the serving path onto A40 class GPUs at roughly one-sixth the hourly rate of H100, holding throughput with continuous batching and Redis-backed queuing across a Rust and Python service boundary.</li>
+        <li>Built serverless, demand-driven inference on DigitalOcean Kubernetes, fronted by an Nginx ingress behind a load balancer, with gRPC services, KEDA-based autoscaling across GPU droplets, and CI/CD pipelines driving build and rollout.</li>
+        <li>Engineered a Graphiti-style temporal memory layer on PostgreSQL and Qdrant over end-to-end encrypted storage, cutting the in-memory index 32× with binary quantization while preserving recall through rescoring, and scaled the vector store horizontally with sharding and replication.</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <header>
+        <p class="when">Jan 2025 – Feb 2026</p>
+        <h3>AI Engineer</h3>
+        <p class="where">Herix Co · Tokyo, Japan · Part-time 30 h/week, remote</p>
+      </header>
+      <ul>
+        <li>Designed a cost-effective due diligence application reaching 95% accuracy on over 500 annual reports through optimized LLM orchestration and efficient data processing with Azure Functions.</li>
+        <li>Developed deep research agents for due diligence using LangGraph, enhancing research and grounding of analytical insights.</li>
+        <li>Built an enterprise-grade hybrid RAG system combining vector databases with knowledge graphs, improving precision and enabling multi-hop querying.</li>
+        <li>Optimized Document Intelligence model deployment with Triton Inference Server and deployed applications on Azure spot instances and Azure Functions, cutting inference cost 50%.</li>
+        <li>Delivered across a multi-cloud footprint, running managed model workflows on Vertex AI and event-driven document processing on Azure Functions.</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <header>
+        <p class="when">Sep 2023 – Nov 2025</p>
+        <h3>AI Engineer</h3>
+        <p class="where">Frost Digital Ventures · Kathmandu, Nepal · Full-time, onsite</p>
+      </header>
+      <ul>
+        <li>Designed and developed an end-to-end chatbot system leveraging advanced retrieval techniques and vector databases, serving over 5,500 case studies and documents across 120+ users a day.</li>
+        <li>Built a Nepali-language speech-to-text application by fine-tuning Wav2Vec2 on a custom audio dataset, reaching production-ready transcription accuracy.</li>
+        <li>Architected server infrastructure for open-source LLM deployment, using TEI for embeddings and vLLM for model serving, cutting inference cost 75% and latency 50%.</li>
+        <li>Developed and managed multi-agent systems using LangGraph, integrating agentic frameworks from LlamaIndex and LangChain for complex task orchestration.</li>
+        <li>Developed voice agents integrated with HubSpot CRM, WhatsApp automation, and Tavily web search.</li>
+        <li>Fine-tuned Llama 3 (8B) with QLoRA for domain-specific adaptation, and instruction-tuned GPT-4o-mini on GPT-4o generated data for cost-efficient inference.</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <header>
+        <p class="when">Jul 2023 – Sep 2023</p>
+        <h3>Data Scientist Intern</h3>
+        <p class="where">iNeuron.ai · India · Internship, remote</p>
+      </header>
+      <ul>
+        <li>Designed and developed an end-to-end computer vision project leveraging transfer learning, deployed with FastAPI for production use.</li>
+        <li>Containerized and deployed applications on AWS using Docker and GitHub Actions for automated CI/CD workflows.</li>
+        <li>Implemented MLOps practices including model versioning, automated testing, and monitoring.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="projects">
+    <h2><b>4</b>Projects</h2>
+
+    <article class="entry">
+      <header>
+        <p class="when">Ref. A</p>
+        <h3>omni-assistant</h3>
+        <p class="where">Voice assistant model for the Linux desktop</p>
+        <p class="links">
+          <a href="https://github.com/rajandevkota98/make-model-omni">GitHub</a>
+          <a href="https://huggingface.co/Rajan98/omni-assistant-0.6b">Hugging Face</a>
+          <a href="https://colab.research.google.com/github/rajandevkota98/make-model-omni/blob/main/notebooks/try_omni_assistant.ipynb">Colab</a>
+        </p>
+      </header>
+      <ul>
+        <li>Built a speech-in, tool-calling assistant model that hears audio directly with no separate speech-to-text step, connecting a frozen Whisper-small encoder to Qwen3-0.6B through a LLaVA-style audio adapter (8.4M parameters).</li>
+        <li>Designed the data pipeline: 20K synthetic desktop commands, cleaned and deduplicated into stratified splits with a frozen test set, multi-turn samples for confirmations, tool results, and errors, voiced with 8 TTS voices plus noise, with separate voices held out for testing.</li>
+        <li>Trained in three stages on Modal GPUs: typed tool SFT with QLoRA (NF4, r=32), audio alignment (7.0% WER on LibriSpeech test-clean), and joint spoken SFT with replay, raising spoken tool-call accuracy from 17.5% to 72.1%.</li>
+        <li>Found that merging the LoRA into the dequantized 4-bit base, rather than the original bf16 weights, recovered 1.3 points on noisy audio; chose bf16 serving (0.3–1.4 s per turn on an L4) after measuring int8 at about 4× slower.</li>
+        <li>Shipped a working desktop voice agent that runs real actions (apps, URLs, volume, timers, weather) through an allow-listed executor with no shell access, asks before risky actions, and speaks replies with Kokoro-82M.</li>
+        <li>Published the model with a model card that reports evals honestly, including the targets it missed.</li>
+      </ul>
+      <p class="stack">PyTorch · Transformers · PEFT/QLoRA · bitsandbytes · Whisper · Qwen3 · Kokoro TTS · Modal · Hugging Face Hub</p>
+    </article>
+
+    <article class="entry">
+      <header>
+        <p class="when">Ref. B</p>
+        <h3>Production OCR Platform</h3>
+        <p class="where">Two-stage document understanding on Modal</p>
+        <p class="links"><a href="https://github.com/rajandevkota98/production-ocr">GitHub</a></p>
+      </header>
+      <ul>
+        <li>PP-DocLayoutV3 (ONNX) segments pages into text, table, formula, and figure regions, and Qwen2-VL-2B (bf16 on A10G) transcribes each crop with region-specific prompts into Markdown tables and LaTeX formulas.</li>
+        <li>Ran each stage as an independently scaled, scale-to-zero Modal function (T4 for layout, A10G for the VLM), loading the VLM once per container so warm requests skip model initialization.</li>
+        <li>Built interchangeable Rust (Axum) and Python (FastAPI) ingestion gateways behind one API contract: 202-Accepted job submission, status polling, magic-byte file validation, and a 10 MB request limit.</li>
+        <li>Decoupled ingestion from inference with Redis task hashes and a FIFO queue, and an async worker that micro-batches up to 4 jobs within a 100 ms window before dispatching to the GPU tier.</li>
+        <li>Exposed the pipeline to AI coding agents as a FastMCP tool with workspace-scoped path checks, and shipped a drag-and-drop demo on Hugging Face Spaces.</li>
+        <li>Built an evaluation harness (CER, WER, Kendall’s τ reading order, table-structure and formula-term scoring) on a 100-page synthetic benchmark; against a RapidOCR baseline, raised multi-column reading-order τ from 0.486 to 0.734 and formula-term recall from 77.6% to 92.0%.</li>
+      </ul>
+      <p class="stack">Python · PyTorch · Qwen2-VL-2B · PP-DocLayoutV3 · Modal · Rust (Axum, Tokio) · FastAPI · Redis · FastMCP · Docker</p>
+    </article>
+
+    <article class="entry">
+      <header>
+        <p class="when">Ref. C</p>
+        <h3>Sensor Fault Detection System</h3>
+        <p class="where">MLOps Level 2 on AWS</p>
+        <p class="links"><a href="https://github.com/rajandevkota98/air-pressure-sensor-fault-detection">GitHub</a></p>
+      </header>
+      <ul>
+        <li>Designed a decoupled microservice architecture for sensor fault detection with automated CI/CD pipelines for training and inference workflows.</li>
+        <li>Implemented Apache Kafka for real-time data streaming and MongoDB for document storage and retrieval.</li>
+      </ul>
+      <p class="stack">Python · Scikit-learn · AWS EC2/ECR · Apache Kafka · GitHub Actions · MongoDB · Docker</p>
+    </article>
+
+    <article class="entry">
+      <header>
+        <p class="when">Ref. D</p>
+        <h3>Covid Detection Using X-Ray Analysis</h3>
+        <p class="where">Medical image classification</p>
+        <p class="links"><a href="https://github.com/rajandevkota98/Covid-Detection-Using-X-Ray-Plates">GitHub</a></p>
+      </header>
+      <ul>
+        <li>Developed a medical image classification system using deep learning to assist radiologists in Covid detection.</li>
+        <li>Implemented S3-based data storage with APIs supporting both batch and single-image inference.</li>
+        <li>Integrated Apache Airflow for automated training pipelines and model monitoring workflows.</li>
+      </ul>
+      <p class="stack">Python · TensorFlow · VGG16 · AWS (EC2, ECR, S3) · GitHub Actions · Apache Airflow · Docker · FastAPI</p>
+    </article>
+  </section>
+
+  <section id="technologies">
+    <h2><b>5</b>Technologies</h2>
+    <dl class="pins">
+      <div><dt>AI/ML frameworks</dt><dd>PyTorch, Transformers, PEFT, bitsandbytes, LangChain, LangGraph, DeepAgents, LlamaIndex, vLLM, TGI, Ollama, MCP (FastMCP), Hugging Face Hub</dd></div>
+      <div><dt>LLM training &amp; multimodal</dt><dd>Multimodal LLMs (audio adapters, embedding injection), LoRA/QLoRA fine-tuning, quantization (NF4, int8), tool/function calling, synthetic data generation, GPU training on Modal</dd></div>
+      <div><dt>Serving &amp; optimization</dt><dd>vLLM, Triton, TensorRT, KEDA autoscaling, continuous batching, binary quantization</dd></div>
+      <div><dt>Vector databases</dt><dd>Qdrant, Weaviate, Pinecone, FAISS, ChromaDB</dd></div>
+      <div><dt>Data processing</dt><dd>PDF/DOCX parsing (PyMuPDF), OCR, layout detection (PP-DocLayoutV3), Excel processing, web scraping</dd></div>
+      <div><dt>Evaluation</dt><dd>OCR metrics (CER, WER, Kendall’s τ reading order), pytest</dd></div>
+      <div><dt>Vision &amp; NLP</dt><dd>Transfer learning, vision-language models, Stable Diffusion, OCR optimization</dd></div>
+      <div><dt>Speech</dt><dd>ASR encoders (Whisper, Wav2Vec2), TTS (Kokoro), voice agents</dd></div>
+      <div><dt>Backend</dt><dd>Python, Rust (Axum, Tokio), FastAPI, gRPC, PostgreSQL, MySQL, MongoDB, Redis, Celery, Alembic</dd></div>
+      <div><dt>Infrastructure &amp; CI/CD</dt><dd>Docker, Docker Compose, Kubernetes, Nginx, GitHub Actions, Apache Airflow, Terraform</dd></div>
+      <div><dt>Observability</dt><dd>Prometheus, Grafana, OpenTelemetry, Sentry, Arize Phoenix, LangSmith</dd></div>
+      <div><dt>Cloud</dt><dd>AWS (EC2, SageMaker, Lambda, S3), Azure (VM, Blob, Functions), GCP (Vertex AI), DigitalOcean (DOKS, Droplets), Modal, Hugging Face Spaces</dd></div>
+    </dl>
+  </section>
+
+  <section id="education">
+    <h2><b>6</b>Education</h2>
+    <article class="entry">
+      <header>
+        <p class="when">Jan 2018 – Jun 2023</p>
+        <h3>Bachelor of Engineering, Computer Engineering</h3>
+        <p class="where">IOE Pashchimanchal Campus, Tribhuvan University · First Division</p>
+      </header>
+    </article>
+  </section>
+
+  <footer class="order">
+    <p class="order-label">Ordering information</p>
+    <p class="order-line">Available for conversations about hard AI systems work.</p>
+    <a class="order-cta" href="mailto:r.devkota.98@gmail.com">r.devkota.98@gmail.com</a>
+    <p class="fine">RD-CV-2026.11 · Kathmandu, Nepal · <a href="https://linkedin.com/in/devkotarajan">LinkedIn</a> · <a href="https://github.com/rajandevkota98">GitHub</a> · Specifications subject to improvement without notice.</p>
+  </footer>
+
+</div>
+</body>
+</html>

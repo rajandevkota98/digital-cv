@@ -1,0 +1,206 @@
+/* Datasheet CV. Tokens first, then layout top to bottom, then print. */
+:root {
+  --paper: #f3f1ea;
+  --ink: #14140f;
+  --dim: #5d5c52;
+  --rule: #14140f;
+  --hair: #c9c6b8;
+  --hot: #e8430a;
+  --band: #e9e6db;
+  --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --body: "Hanken Grotesk", system-ui, sans-serif;
+  --mono: "Spline Sans Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #10110e;
+    --ink: #ecead9;
+    --dim: #9a988a;
+    --rule: #ecead9;
+    --hair: #34352d;
+    --hot: #ff6a2b;
+    --band: #191a15;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; min-width: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1rem/1.6 var(--body);
+  /* faint engineering grid */
+  background-image:
+    linear-gradient(var(--hair) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hair) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-attachment: fixed;
+}
+a { color: inherit; text-decoration-color: var(--hot); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--hot); }
+:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
+
+.sheet {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--paper);
+  border-inline: 2px solid var(--rule);
+  min-height: 100vh;
+}
+
+/* ── Title block ───────────────────────────── */
+.title-block {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 340px);
+  border-bottom: 2px solid var(--rule);
+}
+.tb-name { padding: 2rem 2rem 1.75rem; }
+.tb-kicker, .tb-meta dt, .when, .toc, .note, .stack, .order-label, .fine, .spec th, .pins dt, .links {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.tb-kicker { color: var(--hot); }
+h1 {
+  font: 900 clamp(4.5rem, 17vw, 11.5rem)/.8 var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  margin: 1.25rem 0 1.5rem -.04em;
+  animation: rise .7s cubic-bezier(.2, .8, .2, 1) both;
+}
+.tb-role { font: 700 1.15rem/1.3 var(--body); }
+.tb-role span { color: var(--dim); font-weight: 400; }
+
+.tb-meta { border-left: 2px solid var(--rule); display: grid; align-content: stretch; }
+.tb-meta div { padding: .8rem 1rem; border-bottom: 1px solid var(--rule); animation: rise .5s both; }
+.tb-meta div:last-child { border-bottom: 0; }
+.tb-meta div:nth-child(2) { animation-delay: .08s; }
+.tb-meta div:nth-child(3) { animation-delay: .16s; }
+.tb-meta div:nth-child(4) { animation-delay: .24s; }
+.tb-meta div:nth-child(5) { animation-delay: .32s; }
+.tb-meta dt { color: var(--dim); margin-bottom: .15rem; }
+.tb-meta dd { font: 500 .9rem/1.5 var(--mono); }
+.tb-meta dd a { display: inline-block; margin-right: .75rem; }
+.led {
+  display: inline-block; width: .6rem; height: .6rem; margin-right: .5rem;
+  background: var(--hot); border-radius: 50%;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+/* ── Section index ─────────────────────────── */
+.toc {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; overflow-x: auto;
+  background: var(--ink); color: var(--paper);
+}
+.toc a, .toc button {
+  flex: none; padding: .8rem 1rem; white-space: nowrap;
+  text-decoration: none; border-right: 1px solid color-mix(in srgb, var(--paper) 25%, transparent);
+}
+.toc b { color: var(--hot); margin-right: .5rem; }
+.toc a:hover { background: var(--hot); color: var(--ink); }
+.toc a:hover b { color: var(--ink); }
+.toc button {
+  margin-left: auto; font: inherit; letter-spacing: inherit; text-transform: inherit;
+  background: var(--hot); color: #14140f; border: 0; cursor: pointer;
+}
+
+/* ── Sections ──────────────────────────────── */
+section { padding: 2.5rem 2rem; border-bottom: 2px solid var(--rule); }
+h2 {
+  font: 800 clamp(2rem, 5vw, 3rem)/1 var(--display);
+  text-transform: uppercase; letter-spacing: .01em;
+  margin-bottom: 1.5rem;
+  display: flex; align-items: baseline; gap: .75rem;
+}
+h2 b {
+  font: 600 .8rem/1 var(--mono);
+  background: var(--hot); color: #14140f;
+  padding: .35rem .5rem; translate: 0 -.5em;
+}
+
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.lede { font-size: 1.45rem; line-height: 1.35; font-weight: 500; text-wrap: pretty; }
+.features { list-style: none; padding: 0; border-top: 1px solid var(--rule); }
+.features li { padding: .55rem 0 .55rem 1.5rem; border-bottom: 1px solid var(--hair); position: relative; }
+.features li::before { content: "■"; color: var(--hot); position: absolute; left: 0; font-size: .7rem; top: .85rem; }
+
+/* ── Characteristics table ─────────────────── */
+.table-wrap { overflow-x: auto; border: 2px solid var(--rule); }
+.spec { width: 100%; min-width: 680px; border-collapse: collapse; font-size: .92rem; }
+.spec th { text-align: left; background: var(--ink); color: var(--paper); padding: .6rem .8rem; font-weight: 500; }
+.spec td { padding: .6rem .8rem; border-top: 1px solid var(--hair); vertical-align: top; }
+.spec td + td, .spec th + th { border-left: 1px solid var(--hair); }
+.spec td:first-child { font-weight: 700; }
+.spec td:nth-child(2) { color: var(--dim); }
+.spec tbody tr:nth-child(even) { background: var(--band); }
+.spec .num { font-family: var(--mono); text-align: right; white-space: nowrap; }
+.spec td.hit { color: var(--hot); font-weight: 600; }
+.note { color: var(--dim); margin-top: .9rem; text-transform: none; letter-spacing: .02em; }
+
+/* ── Entries (experience, projects, education) ─ */
+.entry {
+  display: grid; grid-template-columns: 220px 1fr; gap: .5rem 2rem;
+  padding: 1.5rem 0; border-top: 1px solid var(--rule);
+}
+.entry:last-child { padding-bottom: 0; }
+.entry header { align-self: start; }
+.when { color: var(--hot); margin-bottom: .4rem; }
+h3 { font: 800 1.7rem/1.05 var(--display); text-transform: uppercase; letter-spacing: .015em; }
+.where { color: var(--dim); font-size: .9rem; line-height: 1.4; margin-top: .4rem; }
+.links { margin-top: .7rem; display: flex; flex-wrap: wrap; gap: .3rem .9rem; }
+.entry ul { padding-left: 1.1rem; }
+.entry li { margin-bottom: .55rem; text-wrap: pretty; }
+.entry li::marker { color: var(--hot); content: "▸ "; }
+.stack { grid-column: 2; color: var(--dim); border-top: 1px dashed var(--hair); padding-top: .7rem; text-transform: none; letter-spacing: .02em; }
+
+/* ── Technologies as a pin table ───────────── */
+.pins { border: 2px solid var(--rule); }
+.pins div { display: grid; grid-template-columns: 220px 1fr; border-top: 1px solid var(--hair); }
+.pins div:first-child { border-top: 0; }
+.pins div:nth-child(even) { background: var(--band); }
+.pins dt { padding: .75rem .8rem; border-right: 1px solid var(--hair); }
+.pins dd { padding: .6rem .8rem; font-size: .95rem; }
+
+/* ── Footer ────────────────────────────────── */
+.order { padding: 3rem 2rem; background: var(--ink); color: var(--paper); }
+.order-label { color: var(--hot); }
+.order-line { font-size: 1.2rem; margin: .5rem 0 1rem; }
+.order-cta {
+  display: inline-block; font: 800 clamp(1.8rem, 6.5vw, 4.5rem)/1 var(--display);
+  text-transform: uppercase; overflow-wrap: anywhere;
+}
+.fine { margin-top: 2rem; opacity: .65; text-transform: none; letter-spacing: .02em; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+@keyframes pulse { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto; } }
+
+/* ── Small screens ─────────────────────────── */
+@media (max-width: 760px) {
+  .sheet { border-inline: 0; }
+  .title-block, .cols, .entry, .pins div { grid-template-columns: 1fr; }
+  .tb-meta { border-left: 0; border-top: 2px solid var(--rule); }
+  .tb-name, section, .order { padding-inline: 1rem; }
+  .cols { gap: 1.5rem; }
+  .lede { font-size: 1.2rem; }
+  .stack { grid-column: 1; }
+  .pins dt { border-right: 0; padding-bottom: 0; color: var(--hot); }
+}
+
+/* ── Print: the page doubles as the PDF CV ─── */
+@media print {
+  :root { --paper: #fff; --ink: #000; --dim: #444; --rule: #000; --hair: #bbb; --hot: #c43a00; --band: #f3f3f3; }
+  body { background: #fff; font-size: 9.5pt; }
+  .sheet { border: 0; max-width: none; }
+  .toc { display: none; }
+  h1 { font-size: 56pt; margin: .5rem 0; }
+  section { padding: 1rem 0; }
+  .tb-name, .order { padding: 1rem 0; }
+  .order { background: none; color: #000; }
+  .entry { grid-template-columns: 150px 1fr; padding: .7rem 0; }
+  .entry li, .spec tr, .pins div { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+  .spec th { background: #000; color: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
